@@ -1,3 +1,3 @@
-# mjfk23/symfony-bundle
+# gsu-cetloe/symfony-bundle
 
 Common dependencies for Symfony bundles
