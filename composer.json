@@ -3,33 +3,61 @@
     "description": "Common dependencies for Symfony bundles",
     "type": "library",
     "keywords": [
-      "symfony",
-      "symfony-bundle"
+        "symfony",
+        "symfony-bundle"
     ],
     "homepage": "https://github.com/GSU-CETLOE/symfony-bundle",
     "license": "MIT",
     "authors": [
-      {
-        "name": "Jeb Barger",
-        "role": "Application Developer"
-      }
+        {
+            "name": "Jeb Barger",
+            "role": "Application Developer"
+        }
     ],
     "require": {
-      "php": "^8.1",
-      "symfony/config": "6.4.*",
-      "symfony/dependency-injection": "6.4.*",
-      "symfony/http-kernel": "6.4.*",
-      "symfony/yaml": "6.4.*"
+        "php": "^8.1",
+        "symfony/config": "6.4.*",
+        "symfony/dependency-injection": "6.4.*",
+        "symfony/http-kernel": "6.4.*",
+        "symfony/yaml": "6.4.*"
     },
     "autoload": {
-      "psr-4": {
-        "Symfony\\Component\\HttpKernel\\Bundle\\": "src/"
-      }
+        "psr-4": {
+            "Symfony\\Component\\HttpKernel\\Bundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GsuCetloe\\SymfonyBundle\\Tests\\": "tests/"
+        }
     },
     "config": {
-      "sort-packages": true,
-      "optimize-autoloader": true,
-      "apcu-autoloader": true
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "apcu-autoloader": true,
+        "platform": {
+            "php": "8.1.0"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5",
+        "squizlabs/php_codesniffer": "^3.13"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyse",
+        "phpcs": "phpcs",
+        "check": [
+            "@phpcs",
+            "@phpstan",
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "test": "Run the PHPUnit test suite",
+        "phpstan": "Run PHPStan static analysis at level 9",
+        "phpcs": "Check coding standards with PHP_CodeSniffer",
+        "check": "Run phpcs, phpstan, and the test suite in order"
     }
-  }
-  
+}
